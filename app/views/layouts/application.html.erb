@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hub</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<nav>
+    <ul>
+       <li><%= link_to 'Home', root_path %></li>
+       <li><%= link_to 'Posts', posts_path %>
+       <% if current_user %>
+       	<li><%= link_to current_user.username, user_path(current_user.id) %></li>
+        	<li><%= link_to 'New Post', new_post_path %></li>
+        	<li><%= link_to 'Log Out', logout_path%></li>
+        <% else %>
+          <li><%= link_to "Create Account", new_user_path %></li>
+          <li><%= link_to 'Log In', login_path %></li>
+       <% end %>
+    </ul>
+  </nav>
+
+    <%= yield %>
+  </body>
+</html>
