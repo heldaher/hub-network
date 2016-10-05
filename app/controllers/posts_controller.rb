@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   end
 
   def new
-  	# binding.pry
   	# require_user
   end
 
@@ -20,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def show
-  	binding.pry
+  	# binding.pry
   	@post = Post.find(params[:id])
   	@user = @post.user
   end

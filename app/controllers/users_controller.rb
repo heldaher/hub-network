@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
   	user = User.new(user_params)
+    user.username.capitalize!
   	if user.save
   	  session[:user_id] = user.id
-      redirect_to posts_path
+      redirect_to root_path
   	else
   	  @errors = user.errors.full_messages
   	  render 'new'
@@ -20,6 +20,6 @@ class UsersController < ApplicationController
 
 private
    def user_params
-	 params.require(:user).permit(:username, :email, :password)
+	   params.require(:user).permit(:username, :email, :password)
    end
 end
