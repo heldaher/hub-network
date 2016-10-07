@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+	background: #F8F8F8;
+}
+
+#top-nav {
+  background: #F1F88B;
+  border: solid;
+}
+
+#logo {
+	position: absolute;
+	right: 25px;
+	width: 100px;
+	height: 92px;
+}
