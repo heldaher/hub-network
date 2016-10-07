@@ -21,6 +21,7 @@ body {
 #top-nav {
   background: #F1F88B;
   border: solid;
+  height: 120px;
 }
 
 #logo {

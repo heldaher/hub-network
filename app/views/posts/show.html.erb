@@ -1,4 +1,7 @@
 <h1><%= @user.username %> - see your posts:</h1>
 
-<h3><%= @post.title %> </h3>
-<%= @post.description %>
+<div id="post-box">
+  <strong><%= @post.title %></strong>,
+  <em><%= @post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></em> <br>
+  <%= @post.description %>
+ </div>
