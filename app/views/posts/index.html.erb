@@ -2,7 +2,7 @@
 <% @posts.each do |post| %>
 
 	<div id="post-box">
-		<%= link_to post.user.username, user_path(post.user.id) %>
+		<em><strong><%= link_to post.user.username, user_path(post.user.id) %></strong></em>
 		<%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%> <br>
 	  <%= link_to post.title, post_path(post.id) %> <br>
 	  <%= post.description %> <br>

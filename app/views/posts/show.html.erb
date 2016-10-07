@@ -3,7 +3,7 @@
 <div id="post-box">
   <strong><%= @post.title %></strong>,
   <em><%= @post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></em> <br>
-  <%= @post.description %> <br>
+  <%= simple_format(auto_link(@post.description, html: { target: '_blank' }), {}, :sanitize => false) %> <br>
   <% if @post.image.file? %>
     <%= image_tag @post.image.url(:medium) %>
   <% end %>
