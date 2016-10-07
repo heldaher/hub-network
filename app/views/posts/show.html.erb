@@ -3,5 +3,8 @@
 <div id="post-box">
   <strong><%= @post.title %></strong>,
   <em><%= @post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></em> <br>
-  <%= @post.description %>
+  <%= @post.description %> <br>
+  <% if @post.image.file? %>
+    <%= image_tag @post.image.url(:medium) %>
+  <% end %>
  </div>
