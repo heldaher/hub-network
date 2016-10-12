@@ -2,7 +2,7 @@
 
 <% if @posts %>
 	<% @posts.each do |post| %>
-	<div id="post-box"><%= link_to post.title, post_path(post.id) %></div>
+	<div id="post-box"><%= link_to post.id, post_path(post.id) %></div>
 	<% end%>
 <% else %>
   No posts yet

@@ -1,9 +1,8 @@
 <h1><%= @user.username %> - see your posts:</h1>
 
 <div id="post-box">
-  <strong><%= @post.title %></strong>,
   <em><%= @post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></em> <br>
-  <%= simple_format(auto_link(@post.description, html: { target: '_blank' }), {}, :sanitize => false) %> <br>
+  <%= simple_format(auto_link(@post.body, html: { target: '_blank' }), {}, :sanitize => false) %> <br>
   <% if @post.image.file? %>
     <%= image_tag @post.image.url(:medium) %>
   <% end %>
