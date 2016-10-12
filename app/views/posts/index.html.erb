@@ -8,6 +8,9 @@
 	  <% if post.image.file? %>
 	    <%= image_tag post.image.url(:medium) %>
 	  <% end %>
+	  <% if logged_in? && current_user.id == post.user_id %>
+	    <%= link_to 'Edit Post', edit_post_path(post.id) %>
+	  <% end %>
 	</div>
 
 <% end %>

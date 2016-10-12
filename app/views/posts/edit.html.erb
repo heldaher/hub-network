@@ -1,0 +1,7 @@
+<h1>Edit Post:</h1>
+<%= render 'shared/errors' %>
+
+<%= form_for @post do |f| %>
+	<%= f.text_area :body, placeholder: 'post' %><br>
+	<%= f.submit "Submit" %>
+<% end %>

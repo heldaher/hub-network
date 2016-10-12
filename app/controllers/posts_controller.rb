@@ -24,6 +24,22 @@ class PostsController < ApplicationController
   	@user = @post.user
   end
 
+  def edit
+    # require_user
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    # require_user
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      redirect_to @post
+    else
+      @errors = @post.errors.full_messages
+      render 'edit'
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:body, :user_id, :image)
