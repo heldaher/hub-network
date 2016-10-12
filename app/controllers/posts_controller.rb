@@ -39,6 +39,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    require_user
+    post = Post.find(params[:id])
+    if logged_in? && current_user.id == post.user_id   
+    post.destroy
+    redirect_to posts_path
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:body, :user_id, :image)
