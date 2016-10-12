@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def new
-  	# require_user
+  	require_user
   end
 
   def create
@@ -19,18 +19,17 @@ class PostsController < ApplicationController
   end
 
   def show
-  	# binding.pry
   	@post = Post.find(params[:id])
   	@user = @post.user
   end
 
   def edit
-    # require_user
+    require_user
     @post = Post.find(params[:id])
   end
 
   def update
-    # require_user
+    require_user
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       redirect_to @post
