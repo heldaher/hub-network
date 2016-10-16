@@ -1,9 +1,0 @@
-<h1> <%= @user.username %>, see your posts:</h1>
-
-<% if @posts %>
-	<% @posts.each do |post| %>
-	<div id="post-box"><%= link_to post.id, post_path(post.id) %></div>
-	<% end%>
-<% else %>
-  No posts yet
-<% end %>
