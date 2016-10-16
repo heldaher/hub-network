@@ -1,8 +1,9 @@
-<h1>Make a post!</h1>
+<h2>Post here:</h2>
 <%= render 'shared/errors' %>
 
 <%= form_for :post, url: '/posts', :html => { multipart: true } do |f| %>
-	<%= f.text_area :body, placeholder: 'post' %><br>
+	<%= f.text_area :body, placeholder: 'post' %><br><br>
+	<em>optional file upload (only images can be uploaded)</em>
 	<%= f.file_field :image %><br>
 
   -->	<%= f.submit "Submit" %>
