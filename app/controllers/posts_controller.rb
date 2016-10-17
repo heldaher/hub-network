@@ -18,11 +18,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-  	@post = Post.find(params[:id])
-  	@user = @post.user
-  end
-
   def edit
     require_user
     @post = Post.find(params[:id])
