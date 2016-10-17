@@ -2,14 +2,14 @@
 <% @posts.each do |post| %>
 
 	<div id="post-box">
-		<em><strong><%= link_to post.user.username, user_path(post.user.id) %></strong></em>
+		<em><strong><%= post.user.username %></strong></em>
 		<em><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></em> <br>
 	  <%= simple_format(auto_link(post.body, html: { target: '_blank' }), {}, :sanitize => false) %> <br>
 	  <% if post.image.file? %>
 	    <%= image_tag post.image.url(:medium) %>
 	  <% end %>
 	  <% if logged_in? && current_user.id == post.user_id %>
-	    <%= button_to 'Edit Post', edit_post_path(post.id) %><br>
+	    <%= button_to 'Edit Post', edit_post_path(post.id), :class => "button", :method => :get %><br>
 	    <%= button_to 'Delete Post', {:controller=>:posts,:action=>:destroy, :id=>post}, :method=>:delete, data: { confirm: 'Are you sure?' } %>
 	  <% end %>
 	</div>

@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     user = current_user
     post = user.posts.new(post_params)
     if post.save
-      redirect_to post_path(post.id)
+      redirect_to root_path
     else
       @errors = post.errors.full_messages
       render 'new'
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     require_user
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
-      redirect_to @post
+      redirect_to root_path
     else
       @errors = @post.errors.full_messages
       render 'edit'
@@ -50,6 +50,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:body, :user_id, :image)
+      params.require(:post).permit(:body, :image)
     end
 end
