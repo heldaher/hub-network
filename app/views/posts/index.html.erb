@@ -2,8 +2,8 @@
 <% @posts.each do |post| %>
 
 	<div id="post-box">
-		<em><strong><%= post.user.username %></strong></em>
-		<em><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></em> <br>
+		<em><strong class="username-index-font"><%= post.user.username %></strong></em>
+		<em><font size="-1"><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></font></em> <br>
 	  <%= simple_format(auto_link(post.body, html: { target: '_blank' }), {}, :sanitize => false) %> <br>
 	  <% if post.image.file? %>
 	    <%= image_tag post.image.url(:medium) %>
