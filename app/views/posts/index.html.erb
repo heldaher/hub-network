@@ -9,8 +9,8 @@
 	    <%= image_tag post.image.url(:medium) %>
 	  <% end %>
 	  <% if user_signed_in? && current_user == post.user %>
-	    <%= button_to 'Edit Post', edit_post_path(post.id), :class => "button", :method => :get %><br>
-	    <%= button_to 'Delete Post', {:controller=>:posts,:action=>:destroy, :id=>post}, :method=>:delete, data: { confirm: 'Are you sure?' } %>
+	    <%= button_to 'Edit Post', edit_post_path(post.id), :class => "btn btn-primary btn-sm btn-space", :method => :get %>
+	    <%= button_to 'Delete Post', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-primary btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
 	  <% end %>
 	</div>
 
