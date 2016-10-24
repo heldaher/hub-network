@@ -1,7 +1,7 @@
 <h1>Edit Post:</h1>
 <%= render 'shared/errors' %>
 
-<% if logged_in? && current_user.id == @post.user_id %>
+<% if user_signed_in? && current_user == @post.user %>
 
 <%= form_for @post do |f| %>
 	<%= f.text_area :body, placeholder: 'post' %><br>

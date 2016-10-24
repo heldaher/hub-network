@@ -10,6 +10,7 @@ gem 'better_errors'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk', '~> 2.3'
 gem "rails_autolink"
+gem 'devise'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
   	@posts = Post.most_recent
   end
 
   def new
-  	require_user
+    if !user_signed_in?
+      redirect_to user_session_path
+    end
   end
 
   def create
@@ -19,12 +23,16 @@ class PostsController < ApplicationController
   end
 
   def edit
-    require_user
+    if !user_signed_in?
+      redirect_to user_session_path
+    end
     @post = Post.find(params[:id])
   end
 
   def update
-    require_user
+    if !user_signed_in?
+      redirect_to user_session_path
+    end
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
       redirect_to root_path
@@ -35,11 +43,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    require_user
+    if !user_signed_in?
+      redirect_to user_session_path
+    end
     post = Post.find(params[:id])
-    if logged_in? && current_user.id == post.user_id   
-    post.destroy
-    redirect_to posts_path
+    if user_signed_in? && current_user.id == post.user_id   
+      post.destroy
+      redirect_to posts_path
     end
   end
 
