@@ -13,14 +13,14 @@
 <!--   	<nav id="top-nav"> -->
     <nav class="navbar navbar-default">
     <div class="container-fluid">
-    
+
     <!--   <ul class="list-unstyled" id="top-nav-wording"> -->
     
          <img id="logo" src="/table.png" >
 
          <em><h1 id="site-name"> <%= link_to 'Hub', root_path %></h1></em>
          
-              <ul class="nav navbar-nav navbar-left">
+              <ul class="nav navbar-nav" id="navbar-text-margin">
                   <% if user_signed_in? %>
                       <li><%= link_to 'New Post', new_post_path %></li>
                       <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
