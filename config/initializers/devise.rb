@@ -161,7 +161,8 @@ Devise.setup do |config|
   # to give user feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
-  config.email_regexp = /(henrieldaher@gmail.com|laura.eldaher@gmail.com|seldaher@gmail.com|barbarakafka@gmail.com)/
+  # line below limits to just family
+  # config.email_regexp = /(henrieldaher@gmail.com|laura.eldaher@gmail.com|seldaher@gmail.com|barbarakafka@gmail.com)/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
