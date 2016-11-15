@@ -11,18 +11,24 @@
 	  	</div>
 	  </div>
 
-		<em><strong class="username-index-font"><%= post.user.username %></strong></em>
+	  <div id="metadata-post-box">
+		<em><strong class="username-index-font"><%= post.user.username %></strong></em><br>
 		<em><font size="-1"><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></font></em> <br>
-	  <%= simple_format(auto_link(post.body, html: { target: '_blank' }), {}, :sanitize => false) %> <br>
+	  </div>
+
+	  <div id="content-post-box">
+	  <%= simple_format(auto_link(post.body, html: { target: '_blank' }), {}, :sanitize => false) %>
 	  <% if post.image.file? %>
-	   <div class="img-rounded">
+	   <div class="img-responsive" class="center-block" class="img-rounded">
 	    <%= image_tag post.image.url(:medium) %>
 	   </div>
 	  <% end %>
 	  <% if user_signed_in? && current_user == post.user %>
-	    <%= button_to 'Edit Post', edit_post_path(post.id), :class => "btn btn-primary btn-sm btn-space", :method => :get %>
-	    <%= button_to 'Delete Post', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-primary btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
+	    <%= button_to 'Edit', edit_post_path(post.id), :class => "btn btn-primary btn-sm btn-space", :method => :get %>
+	    <%= button_to 'Delete', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-primary btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
 	  <% end %>
+	</div>
+	</div>
 	</div>
 
 <% end %>
