@@ -1,34 +1,42 @@
-<!-- <h3 class="index-page-header">See Posts:</h3> -->
-<% @posts.each do |post| %>
+<div class="container fill">
+  <div class="row">
+	<div id="group-box" class="col-sm-2 no-float">
+	  Your Groups
+	</div>
 
-	<div id="post-box">
+	<div class="col-sm-10 no-float">
+	  <% @posts.each do |post| %>
 
-	  <div class="row">
-	  	<div class="profile-header-container">
-	  	  <div class="profile-header-img">
-	  	    <img class="img-circle" <%= image_tag(post.user.avatar.url(:thumb)) %>
-	  	  </div>
-	  	</div>
-	  </div>
+	    <div id="post-box">
 
-	  <div id="metadata-post-box">
-		<em><strong class="username-index-font"><%= post.user.username %></strong></em><br>
-		<em><font size="-1"><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></font></em> <br>
-	  </div>
+	      <div class="profile-header-container">
+	        <div class="profile-header-img">
+	          <img class="img-circle" <%= image_tag(post.user.avatar.url(:thumb)) %>
+	        </div>
+	      </div>
 
-	  <div id="content-post-box">
-	  <%= simple_format(auto_link(post.body, html: { target: '_blank' }), {}, :sanitize => false) %>
-	  <% if post.image.file? %>
-	   <div class="img-responsive" class="center-block" class="img-rounded">
-	    <%= image_tag post.image.url(:medium) %>
-	   </div>
+	      <div id="metadata-post-box">
+	        <em><strong class="username-index-font"><%= post.user.username %></strong></em>
+	        <em><font size="-1"><%= post.created_at.in_time_zone('Eastern Time (US & Canada)').strftime('%B %e, %Y, %I:%M %P')%></font></em><br>
+	      </div>
+
+	      <div id="content-post-box">
+	        <%= simple_format(auto_link(post.body, html: { target: '_blank' }), {}, :sanitize => false) %>
+	        <% if post.image.file? %>
+	          <div class="img-responsive" class="center-block" class="img-rounded">
+	            <%= image_tag post.image.url(:medium) %>
+	          </div>
+	        <% end %>
+
+	        <% if user_signed_in? && current_user == post.user %>
+	    	  <%= button_to 'Edit', edit_post_path(post.id), :class => "btn btn-primary btn-sm btn-space", :method => :get %>
+	    	  <%= button_to 'Delete', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-primary btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
+	  		<% end %>
+	      </div>
+
+	    </div>
+
 	  <% end %>
-	  <% if user_signed_in? && current_user == post.user %>
-	    <%= button_to 'Edit', edit_post_path(post.id), :class => "btn btn-primary btn-sm btn-space", :method => :get %>
-	    <%= button_to 'Delete', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-primary btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
-	  <% end %>
 	</div>
-	</div>
-	</div>
-
-<% end %>
+  </div>
+</div>

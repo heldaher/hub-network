@@ -1,0 +1,7 @@
+<h2>Create a group!:</h2>
+<%= render 'shared/errors' %>
+
+<%= form_for :group, url: '/groups', :html => {:class => 'new-group-form' } do |f| %>
+	<%= f.text_field :name, placeholder: 'group name', :class => 'new-group-box' %><br><br>
+  -->	<%= f.submit "Submit" %>
+<% end %>
