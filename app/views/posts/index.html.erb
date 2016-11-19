@@ -1,10 +1,8 @@
-<div class="container fill">
+<div>
+ <div class="bordered">
   <div class="row">
-	<div id="group-box" class="col-sm-2 no-float">
-	  Your Groups
-	</div>
 
-	<div class="col-sm-10 no-float">
+	<div class="col-sm-9">
 	  <% @posts.each do |post| %>
 
 	    <div id="post-box">
@@ -38,5 +36,12 @@
 
 	  <% end %>
 	</div>
+    
+
+	<div id="group-box" class="col-sm-3">
+	  Your Groups
+	</div>
+
   </div>
+ </div>
 </div>
