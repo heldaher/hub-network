@@ -1,13 +1,10 @@
 class GroupsController < ApplicationController
 
-  def index
-  	@groups = Group.most_recent
-  end
-
   def new
     if !user_signed_in?
       redirect_to user_session_path
     end
+    @users = User.all.sort_by { |user| user.username.upcase }
   end
 
   def create
