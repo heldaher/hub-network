@@ -1,14 +1,25 @@
-<h1>Edit Post:</h1>
+
 <%= render 'shared/errors' %>
 
-<% if user_signed_in? && current_user == @post.user %>
+<div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="panel panel-default">
+	  
+	  <div class="panel-heading">
+	    <h2>Edit Post:</h2>
+	  </div>
 
-<%= form_for @post do |f| %>
-	<%= f.text_area :body, placeholder: 'post' %><br>
-	<%= f.submit "Submit" %>
-<% end %>
+	  <div class="panel-body">
+		<% if user_signed_in? && current_user == @post.user %>
+		<%= form_for @post do |f| %>
+			<%= f.text_area :body, placeholder: 'post' %><br>
+			<%= f.submit "Submit" %>
+		<% end %>
+		<%else%>
+		  <p>You can only edit your own posts.</p>
+		<% end %>
+	  </div>
 
-<%else%>
-  <p>You can only edit your own posts.</p>
-
-<% end %>
+	</div>
+  </div>
+</div>

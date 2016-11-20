@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :posts, except: :show
 
   resources :users, only: [:new, :create]
+
+  resources :groups, only: [:new, :create, :show]
 end
