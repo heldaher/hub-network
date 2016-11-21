@@ -12,10 +12,12 @@
 		<%= form_for :group, url: '/groups', :html => {:class => 'new-group-form' } do |f| %>
 			<%= f.text_field :name, placeholder: 'group name', :class => 'new-group-box' %><br><br>
 
- 		<% @users.each do |user| %>
- 		  <%= user.username %><br>
- 		<% end %><br>
- 		
+		<div class="user-list">
+	 	  <% @users.each do |user| %>
+	 		<%= user.username %><br>
+	 	  <% end %><br>
+	 	</div>
+
 		<%= f.submit "Submit" %>
 		<% end %>
 	  </div>
