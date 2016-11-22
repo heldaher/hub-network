@@ -9,8 +9,21 @@ class GroupsController < ApplicationController
 
   def create
     user = current_user
-    group = user.groups.new(group_params)
+    group = Group.new(group_params)
+    binding.pry
+
     if group.save
+      member_ids = params["users"]
+      binding.pry
+
+      member_ids.each do |id|
+        id.to_i
+        binding.pry
+        group_user = GroupUser.new(user_id: id, group_id: group.id)
+        binding.pry
+        group_user.save
+
+      end
       redirect_to root_path
     else
       @errors = group.errors.full_messages
@@ -19,7 +32,7 @@ class GroupsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:group).permit(:name)
+    def group_params
+      params.require(:group).permit(:name, :params, group_users: [:user_id, :group_id])
     end
 end

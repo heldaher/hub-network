@@ -10,14 +10,8 @@
 
 	  <div class="panel-body">
 		<%= form_for :group, url: '/groups', :html => {:class => 'new-group-form' } do |f| %>
-			<%= f.text_field :name, placeholder: 'group name', :class => 'new-group-box' %><br><br>
-
-		<div class="user-list">
-	 	  <% @users.each do |user| %>
-	 		<%= user.username %><br>
-	 	  <% end %><br>
-	 	</div>
-
+		  <%= f.text_field :name, placeholder: 'group name', :class => 'new-group-box' %><br><br>
+		  <%= select_tag "users[]", options_for_select(@users.collect{|x| [x.username,x.id]}), {:multiple => :multiple, :size => 10} %>
 		<%= f.submit "Submit" %>
 		<% end %>
 	  </div>
