@@ -10,19 +10,12 @@ class GroupsController < ApplicationController
   def create
     user = current_user
     group = Group.new(group_params)
-    binding.pry
-
     if group.save
       member_ids = params["users"]
-      binding.pry
-
       member_ids.each do |id|
         id.to_i
-        binding.pry
         group_user = GroupUser.new(user_id: id, group_id: group.id)
-        binding.pry
         group_user.save
-
       end
       redirect_to root_path
     else
