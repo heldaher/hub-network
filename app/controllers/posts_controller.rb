@@ -2,7 +2,10 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
+    #need to edit so that it only shows posts of the group
   	@posts = Post.most_recent
+    #need to edit so that it only shows group of the current user
+    @groups = Group.all
   end
 
   def new

@@ -1,5 +1,9 @@
 class GroupsController < ApplicationController
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def new
     if !user_signed_in?
       redirect_to user_session_path
