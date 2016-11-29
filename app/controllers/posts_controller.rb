@@ -12,6 +12,8 @@ class PostsController < ApplicationController
     if !user_signed_in?
       redirect_to user_session_path
     end
+    binding.pry
+    #next step here is to see how I have the group id and then include it here
   end
 
   def create

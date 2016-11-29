@@ -4,7 +4,7 @@
 
   	<div id="group-box" class="col-sm-3 col-sm-push-9">
 	  <em><strong>Your Groups</strong></em><br>
-	  <%= link_to '(Create Group)', new_group_path %><br>
+	  <%= link_to '(Create Group)', new_group_path %><br><br>
 	  <% @groups.each do |group| %>
 	    <% if group.users.include? current_user %>
 	      <em><%= link_to group.name, group_path(group.id) %></em><br>

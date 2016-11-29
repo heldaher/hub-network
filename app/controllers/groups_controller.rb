@@ -2,6 +2,11 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    #need to edit so that it only shows posts of the group
+    @posts = Post.most_recent
+    # @posts = Post.where(:group_id => @group.id)
+    #need to edit so that it only shows group of the current user
+    @groups = Group.all
   end
 
   def new
