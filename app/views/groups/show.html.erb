@@ -3,25 +3,26 @@
   <div class="row" id="index-body">
 
   	<div id="group-box" class="col-sm-3 col-sm-push-9">
-	  <em><strong>Your Groups</strong></em><br>
-	  <%= link_to '(Create Group)', new_group_path %><br><br>
+  	 <div class="group-title">
+	  <em><strong>Your Groups</strong></em> <%= link_to '(Create Group)', new_group_path %><br>
+	 </div>
 	  <% @groups.each do |group| %>
 	    <% if group.users.include? current_user %>
 	      <em><%= link_to group.name, group_path(group.id) %></em><br>
 	    <% end %>
-	  <% end %>
-	  <br><br>
-	  <em><strong>Current Group Members</strong></em><br>
-	  <%= @group.name %><br><br>
-		<% @group.users.each do |user| %>
-		  <%= user.username %><br>
-		<% end %>
+	  <% end %><br>
+	  <div class="group-title">
+	    <em><strong><%= @group.name %></em> group members</strong><br>
+	  </div>
+		  <% @group.users.each do |user| %>
+		    <%= user.username %><br>
+		  <% end %>
 	</div>
 
 	<div class="col-sm-9 col-sm-pull-3">
 
 		<div id="new-post-box"> 
-	       <%= link_to 'New Post', new_post_path( :group => @group) %>
+	       <%= link_to 'Add New Post', new_post_path( :group => @group) %>
 	    </div>
 	    
 		  <% @posts.each do |post| %>

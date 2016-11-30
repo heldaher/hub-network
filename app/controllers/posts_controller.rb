@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     user = current_user
     post = user.posts.new(post_params)
     post.group_id = params[:post][:group_id].to_i
-    binding.pry
     if post.save
       redirect_to root_path
     else
