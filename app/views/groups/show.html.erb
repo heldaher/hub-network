@@ -20,7 +20,9 @@
 
 	<div class="col-sm-9 col-sm-pull-3">
 
-	  <%= link_to 'New Post', new_post_path( :group => @group) %>
+		<div id="new-post-box"> 
+	       <%= link_to 'New Post', new_post_path( :group => @group) %>
+	    </div>
 	    
 		  <% @posts.each do |post| %>
 		   <% if user_signed_in? && post.group_id == @group.id %>
