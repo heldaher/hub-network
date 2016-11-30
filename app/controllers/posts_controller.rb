@@ -12,13 +12,15 @@ class PostsController < ApplicationController
     if !user_signed_in?
       redirect_to user_session_path
     end
-    binding.pry
+    @group = Group.find(params[:group])
     #next step here is to see how I have the group id and then include it here
   end
 
   def create
     user = current_user
     post = user.posts.new(post_params)
+    post.group_id = params[:post][:group_id].to_i
+    binding.pry
     if post.save
       redirect_to root_path
     else

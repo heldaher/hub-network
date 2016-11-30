@@ -14,6 +14,7 @@
 		<%= f.text_area :body, placeholder: 'post', :class => 'new-post-box' %><br><br>
 		<em>optional file upload (only images can be uploaded)</em>
 		<%= f.file_field :image %><br>
+		<%= f.hidden_field :group_id, :value => @group.id %>
 	    <%= f.submit "Submit" %>
 		<% end %>
 	  </div>
