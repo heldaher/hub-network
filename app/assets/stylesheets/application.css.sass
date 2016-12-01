@@ -20,6 +20,9 @@
 body 
   background: #FEFEFE
 
+/*For decreasing space between nav bar and body*/
+#index-body
+  margin-top: -50px
 
 #top-nav 
   background: #CCF6F4
@@ -57,14 +60,27 @@ body
   padding-left: 7px
   padding-bottom: 9px
   border-spacing: 10px
-  margin: 10px 10px 10px 10px
+  margin: 0px 0px 10px 10px
+
+#new-post-box
+  background-color: white
+  border-top: double
+  border-bottom: double
+  border-left: double
+  border-right: double
+  border-radius: 16px
+  padding-left: 7px
+  padding-top: 9px
+  padding-bottom: 9px
+  border-spacing: 10px
+  margin: 0px 0px 10px 10px
 
 #metadata-post-box 
-  padding-left: 90px
-  margin-top: -100px
+  padding-left: 82px
+  margin-top: -79px
 
 #content-post-box
-  padding-top: 50px
+  padding-top: 63px
 
 .index-page-header
   margin-left: 10px
@@ -76,27 +92,66 @@ body
   height: 160px
   width: 320px
 
+.bordered
+  margin-right: 26px
+
+#group-box
+  background-color: #FDFDF4
+  border-top: double
+  border-bottom: double
+  border-left: double
+  border-right: double
+  padding-left: 21px
+  padding-bottom: 7px
+  padding-top: 7px
+
+#group-box-index-page
+  background-color: #FDFDF4
+  border: double
+  margin: 0px 10px 0px 10px
+  padding: 7px
+
+.group-title
+  border-bottom: 1px solid black
+
 .profile-header-container
   margin: 0 auto
 
 .profile-header-img
-  padding-left: 15px
+  padding-left: 2px
+  padding-top: 8px
 
 .profile-header-img > img.img-circle
   width: 70px
   height: 80px
   border: 2px solid #51D2B7
 
-@media only screen and (max-width : 700px) 
+@media only screen and (max-width : 600px) 
   body 
-    font-size: 24px
+    font-size: 21px
 
   div.mobile-collapse
     width: auto
     float: none
     margin-right: 0
-  
 
+  #group-box
+    margin-left: 25px
+    margin-right: 14px
+    margin-bottom: 12px
+
+@media only screen and (max-width : 767px) 
+
+  #group-box
+    margin-left: 25px
+    margin-right: 0px
+    margin-bottom: 12px 
+
+  #post-box
+    margin-right: -15px
+
+  #new-post-box
+    margin-right: -15px
 
 
 

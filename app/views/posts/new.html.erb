@@ -1,10 +1,25 @@
-<h2>Post here:</h2>
+
 <%= render 'shared/errors' %>
 
-<%= form_for :post, url: '/posts', :html => { multipart: true } do |f| %>
-	<%= f.text_area :body, placeholder: 'post', :class => 'new-post-box' %><br><br>
-	<em>optional file upload (only images can be uploaded)</em>
-	<%= f.file_field :image %><br>
+<div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="panel panel-default">
+	  
+	  <div class="panel-heading">
+	    <h2>Post here:</h2>
+	  </div>
 
-  -->	<%= f.submit "Submit" %>
-<% end %>
+	  <div class="panel-body">
+		<%= form_for :post, url: '/posts', :html => { multipart: true } do |f| %>
+		<%= f.text_area :body, placeholder: 'post', :class => 'new-post-box' %><br><br>
+		<em>optional file upload (only images can be uploaded)</em>
+		<%= f.file_field :image %><br>
+		<%= f.hidden_field :group_id, :value => @group.id %>
+	    <%= f.submit "Submit" %>
+		<% end %>
+	  </div>
+
+	</div>
+  </div>
+</div>
+

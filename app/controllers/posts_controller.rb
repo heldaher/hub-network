@@ -3,17 +3,20 @@ class PostsController < ApplicationController
 
   def index
   	@posts = Post.most_recent
+    @groups = Group.all
   end
 
   def new
     if !user_signed_in?
       redirect_to user_session_path
     end
+    @group = Group.find(params[:group])
   end
 
   def create
     user = current_user
     post = user.posts.new(post_params)
+    post.group_id = params[:post][:group_id].to_i
     if post.save
       redirect_to root_path
     else

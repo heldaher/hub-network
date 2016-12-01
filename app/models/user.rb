@@ -6,6 +6,9 @@ class User < ApplicationRecord
   	
   	# has_secure_password
 	has_many :posts
+  
+  has_many :group_users
+  has_many :groups, :through => :group_users
 
   #add avatar (prof pic)
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"

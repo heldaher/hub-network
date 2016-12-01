@@ -1,0 +1,23 @@
+<%= render 'shared/errors' %>
+
+<div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+		<h3>Create Group:</h3>
+	  </div>
+
+	  <div class="panel-body">
+		<%= form_for :group, url: '/groups', :html => {:class => 'new-group-form' } do |f| %>
+		  <%= f.text_field :name, placeholder: 'group name', :class => 'new-group-box' %><br><br>
+		  <em><span>For Windows: Hold down the control (ctrl) button to select multiple options</span></em><br>
+		  <em><span>For Mac: Hold down the command button to select multiple options</span></em><br><br>
+		  <%= select_tag "users[]", options_for_select(@users.collect{|x| [x.username,x.id]}), {:multiple => :multiple, :size => 10} %><br><br>
+		<%= f.submit "Submit" %>
+		<% end %>
+	  </div>
+
+	</div>
+  </div>
+</div>
