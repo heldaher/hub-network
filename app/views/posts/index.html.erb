@@ -3,10 +3,12 @@
     <div class="group-title">
 	  <em><strong>Your Groups</strong></em> <%= link_to '(Create Group)', new_group_path %><br>
 	</div><br>
-	<% @groups.each do |group| %>
-	  <% if group.users.include? current_user %>
-	    <em><%= link_to group.name, group_path(group.id) %></em><br>
-	   <% end %>
+	<% if @groups %>
+	  <% @groups.each do |group| %>
+	    <% if group.users.include? current_user %>
+	      <em><%= link_to group.name, group_path(group.id) %></em><br>
+	    <% end %>
+	  <% end %>
 	<% end %>
   </div>
 </div>
