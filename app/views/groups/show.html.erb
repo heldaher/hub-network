@@ -6,11 +6,11 @@
   	 <div class="group-title">
 	  <em><strong>Your Groups</strong></em> <%= link_to '(Create Group)', new_group_path %><br>
 	 </div>
-	  <% @groups.each do |group| %>
-	    <% if group.users.include? current_user %>
-	      <em><%= link_to group.name, group_path(group.id) %></em><br>
-	    <% end %>
-	  <% end %><br>
+	    <% @groups.each do |group| %>
+	      <% if group.users.include? current_user %>
+	        <em><%= link_to group.name, group_path(group.id) %></em><br>
+	      <% end %>
+	    <% end %><br>
 	  <div class="group-title">
 	    <em><strong><%= @group.name %></em> group members</strong><br>
 	  </div>
