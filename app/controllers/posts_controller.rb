@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     post = user.posts.new(post_params)
     post.group_id = params[:post][:group_id].to_i
     if post.save
-      redirect_to root_path
+      redirect_to group_path(post.group_id)
     else
       @errors = post.errors.full_messages
       render 'new'
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     if user_signed_in? && current_user.id == post.user_id   
       post.destroy
-      redirect_to posts_path
+      redirect_to group_path(post.group_id)
     end
   end
 
