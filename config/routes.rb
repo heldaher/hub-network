@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   resources :groups, only: [:new, :create, :show]
+
+  resources :comments, except: :show
 end

@@ -2,6 +2,7 @@ class Post < ApplicationRecord
 
 	belongs_to :user
 	belongs_to :group
+	has_many :comments
 	# has_one :group, through: :user
 
 	has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#" }
