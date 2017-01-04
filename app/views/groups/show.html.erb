@@ -49,9 +49,12 @@
 		        <% end %>
 
 		        <% if user_signed_in? && current_user == post.user %>
-		    	  <%= button_to 'Edit', edit_post_path(post.id), :class => "btn btn-primary btn-sm btn-space", :method => :get %>
-		    	  <%= button_to 'Delete', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-primary btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
+		    	  <%= button_to 'Edit', edit_post_path(post.id), :class => "btn btn-sm btn-space", :method => :get %>
+		    	  <%= button_to 'Delete', {:controller=>:posts,:action=>:destroy, :id=>post}, :class => "btn btn-sm btn-space", :method=>:delete, data: { confirm: 'Are you sure?' } %>
 		  		<% end %>
+
+		  		<%= button_to 'Comment', new_comment_path, :class => "btn btn-primary btn-space", :method => :get %>
+
 		      </div>
 
 		    </div>
